@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theme Color Customization</title>
+    <style>
+        /* Basic Styling for the Page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--theme-color, #3498db); /* Default theme color */
+            color: white;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.5s ease;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            background-color: var(--theme-color, #3498db);
+            transition: background-color 0.5s ease;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+        }
+
+        header p {
+            font-size: 1.2em;
+        }
+
+        .theme-customization {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        main {
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: var(--theme-color, #3498db);
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            transition: background-color 0.5s ease;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to My Blog</h1>
+        <p>Choose your theme color!</p>
+    </header>
+
+    <section class="theme-customization">
+        <label for="color-picker">Pick a theme color: </label>
+        <input type="color" id="color-picker" value="#3498db">
+    </section>
+
+    <main>
+        <p>This is some content on my blog. The color theme above will change the look of this page!</p>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 My Awesome Blog</p>
+    </footer>
+
+    <script>
+        // Get the color picker element
+        const colorPicker = document.getElementById('color-picker');
+
+        // Function to update the theme color
+        function updateThemeColor(color) {
+            // Set the custom theme color as a CSS variable
+            document.documentElement.style.setProperty('--theme-color', color);
+        }
+
+        // Event listener to detect color change
+        colorPicker.addEventListener('input', (event) => {
+            updateThemeColor(event.target.value);
+        });
+    </script>
+</body>
+</html>
